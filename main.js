@@ -73,7 +73,7 @@ export async function tambahabsensi(tanggal, nis, nama, alamat, notlpn, kelas, k
       await deleteDoc(doc(db, "absensi", docid));
     }
     export async function ubahabsensi(docId, tanggal, nis, nama, alamat, notlpn, kelas, keterangan) {
-      await updateDoc(doc(db, "produk", docId), {
+      await updateDoc(doc(db, "absensi", docId), {
         tanggal: tanggal,
         nis: nis,
         nama: nama,
