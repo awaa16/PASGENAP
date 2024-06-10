@@ -50,34 +50,42 @@
     </div>
     <input type="text" class="form-control" id="input-noTlpn">
     </div>
-    
+
+
     <button type="submit" class="btn btn-primary" id="tombol-ubah">Ubah</button>
   </form>
 
   <div class="d-flex justify-content-center">
-    <button onclick="location.href='index.html'" style="background-color: blue; color: white; border-radius: 10px;">lihat data penjual</button>
+    <button onclick="location.href='index.html'" style="background-color: blue; color: white; border-radius: 10px;">lihat data absensi siswa</button>
   </div>
 
   <script type="module">
-    import { ambilProduk, ubahProduk } from './main.js';
+    import { ambilansensi, ubahabsensi } from './main.js';
 
-    let tombolUbah = document.getElementById('tombol-ubah');
-    let elemenNamaProduk = document.getElementById('input-nama');
-    let elemenHarga = document.getElementById('input-alamat');
-    let elemenStok = document.getElementById('input-noTlpn');
-    const queryString = window.location.search
+    let tombolTambah = document.getElementById('tombol-tambah');
+    let elemenNamasiswa = document.getElementById('input-nama');
+    let elementanggal = document.getElementById('input-tanggal');
+    let elemennis = document.getElementById('input-nis');
+    let elemenalamat = document.getElementById('tombol-alamat');
+    let elemennotlpn = document.getElementById('input-notlpn');
+    let elemenkelas = document.getElementById('input-kelas');
+    let elemenketerangan = document.getElementById('input-keterangan')
     const parameterURL = new URLSearchParams(queryString);
     const docId = parameterURL.get('docId')
-    const produk = await ambilProduk(docId);
+    const produk = await ambilabsensi(docId);
 
-    elemenNamaProduk.value = produk.nama;
-    elemenHarga.value = produk.harga;
-    elemenStok.value = produk.stok;
+    elemenNamasiswa.value = absensi.nama;
+    elementanggal.value = absensi.tanghal;
+    elemennis.value = absensi.nis;
+    elemenalamat.value = absensi.alamat;
+    elemennotlpn.value = absensi.notlpn;
+    elemenkelas.value = absensi.kelas;
+    elemenketerangan.value= absensi.keyerangan;
 
 
     tombolUbah.addEventListener('click', async function(el) {
       el.preventDefault();
-      await ubahProduk(docId, elemenNamaPembeli.value, elemenHarga.value, elemenStok.value);
+      await ubahabsensi(docId, elemenNamaPembeli.value, elemenHarga.value, elemenStok.value);
       window.location.href = 'index.html';
     });
   </script>
