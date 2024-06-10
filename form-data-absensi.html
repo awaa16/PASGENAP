@@ -57,18 +57,18 @@
     import { tambahabsensi } from './main.js';
 
     let tombolTambah = document.getElementById('tombol-tambah');
-    let elemennama = document.getElementById('input-nama');
-    let elementanggal = document.getElementById('input-tanggal');
-    let elemennis = document.getElementById('input-nis');
-    let elemenalamat = document.getElementById('tombol-alamat');
-    let elemennotlpn = document.getElementById('input-notlpn');
-    let elemenkelas = document.getElementById('input-kelas');
-    let elemenketerangan = document.getElementById('input-keterangan');
+    let elemenTanggal = document.getElementById('input-tanggal');
+    let elemenNis = document.getElementById('input-nis');
+    let elemenNama = document.getElementById('input-nama');
+    let elemenAlamat = document.getElementById('input-alamat');
+    let elemenNoTlpn = document.getElementById('input-noTlpn');
+    let elemenKelas = document.getElementById('input-kelas');
+    let elemenKeterangan = document.getElementById('input-keterangan')
 
 
     tombolTambah.addEventListener('click', async function(e) {
       e.preventDefault();
-      await tambahabsensi(elemenNama.value, elemenTanggal.value, elemenNis.value, elemenAlamat.velue, elemNotlpn.velue, elemenKelas.velue, elemenKeterangan.value );
+      await tambahabsensi(elemenNama.value, elemenTanggal.value, elemenNis.value, elemenAlamat.velue, elemNotlpn.velue, elemenKelas.velue, elemenKeterangan.value);
 
       window.location.href = 'index.html';
     });
