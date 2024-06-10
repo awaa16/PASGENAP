@@ -21,33 +21,33 @@
     </div>
     <div class="mb-3">
       <label class="form-label">Tanggal </label>
-      <input type="text" class="form-control" id="input-harga">
+      <input type="date" class="form-control" id="input-harga">
     </div>
     <div class="mb-3">
       <label class="form-label">Nis</label>
       <input type="text" class="form-control" id="input-stok">
     </div>
-    
+
     <div class="mb-3">
       <label class="form-label">Alamat</label>
       <input type="text" class="form-control" id="input-stok">
     </div>
-    
+
     <div class="mb-3">
       <label class="form-label">Notlpn</label>
       <input type="text" class="form-control" id="input-stok">
     </div>
-    
+
     <div class="mb-3">
       <label class="form-label"> Kelas</label></label>
       <input type="text" class="form-control" id="input-stok">
     </div>
-    
+
     <div class="mb-3">
       <label class="form-label">Keterangan</label>
       <input type="text" class="form-control" id="input-stok">
     </div>
-    
+
     <button type="submit" class="btn btn-primary" id="tombol-tambah">Simpan</button>
   </form>
 
@@ -57,18 +57,19 @@
     import { tambahabsensi } from './main.js';
 
     let tombolTambah = document.getElementById('tombol-tambah');
-    let elemenNamasiswa= document.getElementById('input-nama');
-    let elementanggal= document.getElementById('input-tanggal');
-    let elemennis= document.getElementById('input-nis');
-    let elemenalamat= document.getElementById('tombol-alamat');
-    let elemennotlpn= document.getElementById('input-notlpn');
-    let elemenkelas= document.getElementById('input-kelas');
-    let elemenketerangan= document.getElementById('input-keterangan');
+    let elemenNamasiswa = document.getElementById('input-nama');
+    let elementanggal = document.getElementById('input-tanggal');
+    let elemennis = document.getElementById('input-nis');
+    let elemenalamat = document.getElementById('tombol-alamat');
+    let elemennotlpn = document.getElementById('input-notlpn');
+    let elemenkelas = document.getElementById('input-kelas');
+    let elemenketerangan = document.getElementById('input-keterangan');
 
 
     tombolTambah.addEventListener('click', async function(e) {
       e.preventDefault();
-      await tambahabsensi(elemenNamasiswa.value, elemenHarga.value, elemenStok.value);
+      await tambahabsensi(elemenNamasiswa.value, elemetanggal.value, elemennis.value, elemenalamat.velue, elemnotlpn.velue, elemenkelas.velue, elemenketerangan.value, );
+
       window.location.href = 'index.html';
     });
   </script>
