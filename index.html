@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  
+
   <h1>Daftar Data Ansensi Kls xI</h1>
   <table class="table" id="daftar-penjual">
     <thead>
@@ -38,11 +38,11 @@
   <a href="form-data-absensi.html">Absensi siswa</a>
 
   <script type="module">
-    import { ambilDaftarAbsensi, formatAngka, hapusabsensi } from './main.js';
+    import { ambilDaftarabsensi, formatAngka, hapusabsensi } from './main.js';
 
     $(document).ready(async function() {
       let elemenDaftar = $("#daftar-absensi > tbody");
-      let daftarProduk = await ambilDaftarabsensi();
+      let daftarabsensi = await ambilDaftarabsensi();
       let nomor = 1;
 
       daftarabsensi.forEach((data) => {
@@ -50,12 +50,12 @@
           '<tr>' +
           '<th>' + nomor + '</th>' +
           '<td>' + data.nama + '</td>' +
-          '<td>' + data.notlpn + '</td>' +
-          '<td>' + formatAngka(data.alamat) + '</td>' +
-          '<td>' + data.tangal + '</td>' +
-          '<td>' + data.Nis + '</td>' +
+          '<td>' + data.nis + '</td>' +
+          '<td>' + data.tanggal+ '</td>'+
+          '<td>' + data.alamat+ '</td>'+
+          '<td>' + data.notlpn +'</td>' +
           '<td>' + data.Kelas + '</td>' +
-          '<td>' + data.Keteranga+ '</td>' +
+          '<td>' + data.Keterangan + '</td>' +
           '<td>' + '<button class="btn btn-danger tombol-hapus" data>' + '<td class="stack-up">' +
           ' <a href="#" class="btn btn-warning link-ubah"  data="' +
           data.id +
@@ -83,9 +83,13 @@
       $('#loader').hide();
 
     });
+  </script>
+  <footer class="py-3 bg-dark-subtle mt-auto">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="/pasarcemerlang/index.html" class="nav-link px-2 text-body-secondary">Beranda</a></li>
+    </ul>
+    <p class="text-center text-body-secondary">&copy; 2024 ABSEN CIWW</p>
+  </footer>
+</body>
 
-
-
-    </body>
-
-    </html>
+</html>
