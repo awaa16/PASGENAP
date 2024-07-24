@@ -34,10 +34,10 @@ export async function ambilDaftarabsensi() {
   cuplikanKueri.forEach((dok) => {
     hasil.push({
       id: dok.id,
-      tanggal: dok.data().tanggal,
-      nis: dok.data().nis,
+      nomor : dok.data().nomor,
       nama: dok.data().nama,
-      alamat: dok.data().alamat,
+      nis: dok.data().nis,
+      tanggal: dok.data().tanggal,
       notlpn: dok.data().notlpn,
       kelas: dok.data().kelas,
       keterangan: dok.data().keterangan,
@@ -51,7 +51,7 @@ export function formatAngka(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
-export async function tambahabsensi(tanggal, nis, nama, alamat, notlpn, kelas, keterangan) {
+export async function tambahabsensi(nama, nis, tanggal, alamat, notlpn, kelas, keterangan) {
       try {
         const dokRef = await addDoc(collection(db, 'absensi'), {
           tanggal: tanggal,
