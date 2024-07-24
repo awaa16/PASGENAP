@@ -64,26 +64,15 @@
     let elemennoTlpn = document.getElementById('input-notlpn');
     let elemenkelas = document.getElementById('input-kelas');
     let elemenketerangan = document.getElementById('input-keterangan');
-    
- 
-    
-
 
     tombolTambah.addEventListener('click', async function(e) {
       e.preventDefault();
-      
-      console.log(elementanggal.value);
-      console.log(elemennis.value);
-      console.log(elemennama.value);
-      console.log(elemenalamat.value);
-      console.log(elemennoTlpn.value);
-      console.log(elemenkelas.value);
-      console.log(elemenketerangan.value);
-      
+
+
       await tambahabsensi(elemennama.value, elementanggal.value, elemennis.value, elemenalamat.value, elemennoTlpn.value, elemenkelas.value, elemenketerangan.value);
-      
-      //window.location.href = 'index.html';
-     
+
+      window.location.href = 'index.html';
+
     });
   </script>
 
