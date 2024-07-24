@@ -45,7 +45,7 @@
 
     <div class="mb-3">
       <label class="form-label">Keterangan</label>
-      <input type="text" class="form-control" id="input-keterangam">
+      <input type="text" class="form-control" id="input-keterangan">
     </div>
 
     <button type="submit" class="btn btn-primary" id="tombol-tambah">Simpan</button>
@@ -61,14 +61,14 @@
     let elemenNis = document.getElementById('input-nis');
     let elemenNama = document.getElementById('input-nama');
     let elemenAlamat = document.getElementById('input-alamat');
-    let elemenNoTlpn = document.getElementById('input-noTlpn');
+    let elemenNoTlpn = document.getElementById('input-notlpn');
     let elemenKelas = document.getElementById('input-kelas');
     let elemenKeterangan = document.getElementById('input-keterangan')
 
 
     tombolTambah.addEventListener('click', async function(e) {
       e.preventDefault();
-      await tambahabsensi(elemenNama.value, elemenTanggal.value, elemenNis.value, elemenAlamat.velue, elemNotlpn.velue, elemenKelas.velue, elemenKeterangan.value);
+      await tambahabsensi(elemenNama.value, elemenTanggal.value, elemenNis.value, elemenAlamat.velue, elemenNoTlpn.value, elemenKelas.velue, elemenKeterangan.value);
 
       window.location.href = 'index.html';
     });
