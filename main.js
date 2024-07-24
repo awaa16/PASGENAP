@@ -34,10 +34,11 @@ export async function ambilDaftarabsensi() {
   cuplikanKueri.forEach((dok) => {
     hasil.push({
       id: dok.id,
-      nomor : dok.data().nomor,
+      nomor: dok.data().nomor,
       nama: dok.data().nama,
       nis: dok.data().nis,
       tanggal: dok.data().tanggal,
+      alamat : dok.data().alamat,
       notlpn: dok.data().notlpn,
       kelas: dok.data().kelas,
       keterangan: dok.data().keterangan,
@@ -52,42 +53,42 @@ export function formatAngka(x) {
 }
 
 export async function tambahabsensi(nama, nis, tanggal, alamat, notlpn, kelas, keterangan) {
-      try {
-        const dokRef = await addDoc(collection(db, 'absensi'), {
-          tanggal: tanggal,
-          nis: nis,
-          nama: nama,
-          alamat: alamat,
-          notlpn: notlpn,
-          kelas: kelas,
-          keterangan: keterangan,
+  try {
+    const dokRef = await addDoc(collection(db, 'absensi'), {
+      tanggal: tanggal,
+      nis: nis,
+      nama: nama,
+      alamat: alamat,
+      notlpn: notlpn,
+      kelas: kelas,
+      keterangan: keterangan,
 
-        });
-        console.log('Berhasil menambah absensi ' + dokRef.id);
-      } catch (e) {
-        console.log('Gagal menambah absensi ' + e);
-      }
-    }
+    });
+    console.log('Berhasil menambah absensi ' + dokRef.id);
+  } catch (e) {
+    console.log('Gagal menambah absensi ' + e);
+  }
+}
 
-    export async function hapusabsensi(docid) {
-      await deleteDoc(doc(db, "absensi", docid));
-    }
-    export async function ubahabsensi(docId, tanggal, nis, nama, alamat, notlpn, kelas, keterangan) {
-      await updateDoc(doc(db, "absensi", docId), {
-        tanggal: tanggal,
-        nis: nis,
-        nama: nama,
-        alamat: alamat,
-        notlpn: notlpn,
-        kelas: kelas,
-        keterangan: keterangan,
+export async function hapusabsensi(docid) {
+  await deleteDoc(doc(db, "absensi", docid));
+}
+export async function ubahabsensi(docId, tanggal, nis, nama, alamat, notlpn, kelas, keterangan) {
+  await updateDoc(doc(db, "absensi", docId), {
+    tanggal: tanggal,
+    nis: nis,
+    nama: nama,
+    alamat: alamat,
+    notlpn: notlpn,
+    kelas: kelas,
+    keterangan: keterangan,
 
-      });
-    }
+  });
+}
 
-    export async function ambilabsensi(docId) {
-      const docRef = await doc(db, "absensi", docId);
-      const docSnap = await getDoc(docRef);
+export async function ambilabsensi(docId) {
+  const docRef = await doc(db, "absensi", docId);
+  const docSnap = await getDoc(docRef);
 
-      return await docSnap.data();
-    }
+  return await docSnap.data();
+}

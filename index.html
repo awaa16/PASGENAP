@@ -20,9 +20,9 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Tanggal</th>
+        <th scope="col">nama</th>
         <th scope="col">Nis</th>
-        <th scope="col">Nama</th>
+        <th scope="col">tanggal</th>
         <th scope="col">Alamat</th>
         <th scope="col">notlpn</th>
         <th scope="col">kelas</th>
@@ -41,7 +41,7 @@
     import { ambilDaftarabsensi, formatAngka, hapusabsensi } from './main.js';
 
     $(document).ready(async function() {
-      let elemenDaftar = $("#Absensi siswa> tbody");
+      let elemenDaftar = $("#daftar-absensi> tbody");
       let daftarabsensi = await ambilDaftarabsensi();
       let nomor = 1;
 
@@ -54,8 +54,8 @@
           '<td>' + data.tanggal+ '</td>'+
           '<td>' + data.alamat+ '</td>'+
           '<td>' + data.notlpn +'</td>' +
-          '<td>' + data.Kelas + '</td>' +
-          '<td>' + data.Keterangan + '</td>' +
+          '<td>' + data.kelas + '</td>' +
+          '<td>' + data.keterangan + '</td>' +
           '<td>' + '<button class="btn btn-danger tombol-hapus" data>' + '<td class="stack-up">' +
           ' <a href="#" class="btn btn-warning link-ubah"  data="' +
           data.id +
