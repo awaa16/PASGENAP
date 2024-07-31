@@ -81,7 +81,7 @@
     elemenketerangan.value = absensi.keterangan;
 
 
-    tombolubah.addEventListener('click', async function(e) {
+    tombolubah.addEventListener('click', async function(el) {
       el.preventDefault();
       await ubahabsensi(elemennama.value, elementanggal.value, elemennis.value, elemenalamat.value, elemennoTlpn.value, elemenkelas.value, elemenketerangan.value);
 
