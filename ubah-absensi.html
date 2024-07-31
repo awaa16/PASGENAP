@@ -64,14 +64,14 @@
     let elemennotlpn = document.getElementById('input-notlpn');
     let elemenkelas = document.getElementById('input-kelas');
     let elemenketerangan = document.getElementById('input-keterangan');
-    
+
     const queryString = window.location.search
     const parameterURL = new URLSearchParams(queryString);
     const docId = parameterURL.get('docId')
     const absensi = await ambilabsensi(docId);
 
 
-   
+
     elementanggal.value = absensi.tanggal;
     elemennama.value = absensi.nama;
     elemennis.value = absensi.nis;
@@ -83,7 +83,7 @@
 
     tombolubah.addEventListener('click', async function(el) {
       el.preventDefault();
-      
+
       console.log(elementanggal.value);
       console.log(elemennama.value);
       console.log(elemennis.value);
@@ -91,22 +91,21 @@
       console.log(elemennotlpn.value);
       console.log(elemenkelas.value);
       console.log(elemenketerangan.value);
-      
-      await ubahabsensi(elemennama.value, elementanggal.value, elemennis.value, elemenalamat.value, elemennotlpn.value, elemenkelas.value, elemenketerangan.value);
 
-     // window.location.href = 'index.html';
+      await ubahabsensi(docId,elemennama.value, elementanggal.value, elemennis.value, elemenalamat.value, elemennotlpn.value, elemenkelas.value, elemenketerangan.value);
+
+      // window.location.href = 'index.html';
 
     });
-    
   </script>
-  
-   <footer class="py-3 bg-dark-subtle mt-auto">
-     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-       <li class="nav-item"><a href="index.html" class="nav-link px-2 text-body-secondary">Beranda</a></li>
-     </ul>
-     <p class="text-center text-body-secondary">&copy; 2024 ABSEN SISWA</p>
-     
-   </footer>
+
+  <footer class="py-3 bg-dark-subtle mt-auto">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="index.html" class="nav-link px-2 text-body-secondary">Beranda</a></li>
+    </ul>
+    <p class="text-center text-body-secondary">&copy; 2024 ABSEN SISWA</p>
+
+  </footer>
 
 </body>
 

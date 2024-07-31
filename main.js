@@ -74,9 +74,8 @@ export async function tambahabsensi(nama, nis,tanggal, alamat, notlpn, kelas, ke
 export async function hapusabsensi(docid) {
   await deleteDoc(doc(db, "absensi", docid));
 }
-export async function ubahabsensi(docId, nomor, nama, nis,tanggal, alamat, notlpn, kelas, keterangan) {
+export async function ubahabsensi(docId, nama, nis,tanggal, alamat, notlpn, kelas, keterangan) {
   await updateDoc(doc(db, "absensi", docId), {
-    nomor: nomor,
     nama: nama,
     nis: nis,
     tanggal: tanggal,
