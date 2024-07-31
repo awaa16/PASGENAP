@@ -61,7 +61,7 @@
     let elemennis = document.getElementById('input-nis');
     let elemennama = document.getElementById('input-nama');
     let elemenalamat = document.getElementById('input-alamat');
-    let elemennoTlpn = document.getElementById('input-notlpn');
+    let elemennotlpn = document.getElementById('input-notlpn');
     let elemenkelas = document.getElementById('input-kelas');
     let elemenketerangan = document.getElementById('input-keterangan');
     
@@ -76,16 +76,25 @@
     elemennama.value = absensi.nama;
     elemennis.value = absensi.nis;
     elemenalamat.value = absensi.alamat;
-    elemennoTlpn.value = absensi.notlpn;
+    elemennotlpn.value = absensi.notlpn;
     elemenkelas.value = absensi.kelas;
     elemenketerangan.value = absensi.keterangan;
 
 
     tombolubah.addEventListener('click', async function(el) {
       el.preventDefault();
-      await ubahabsensi(elemennama.value, elementanggal.value, elemennis.value, elemenalamat.value, elemennoTlpn.value, elemenkelas.value, elemenketerangan.value);
+      
+      consol.log(elementanggal.value);
+      consol log(elemennama.value);
+      consol.log(elemennis.value);
+      consol.log(elemenalamat.value);
+      consol.log(elemennotlpn.value);
+      consol.log(elemenkelas.value);
+      consol.log(elemenketerangan.value);
+      
+      await ubahabsensi(elemennama.value, elementanggal.value, elemennis.value, elemenalamat.value, elemennotlpn.value, elemenkelas.value, elemenketerangan.value);
 
-      window.location.href = 'index.html';
+     // window.location.href = 'index.html';
 
     });
     
