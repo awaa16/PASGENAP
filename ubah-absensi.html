@@ -1,94 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title> Absensi siswa</title>
-
+  <title>Daftar Absensi kls xI</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 
-<body class="m-4">
-  <h1>Ubah absensi siswa</h1>
+<body class="m-3">
+  <h1>Daftar ubah absensi Kls xii</h1>
 
   <form class="mb-3">
     <div class="mb-3">
-      <label class="form-label">nama siswa</label>
+      <label class="form-label">Nama siswa</label>
       <input type="text" class="form-control" id="input-nama">
     </div>
     <div class="mb-3">
       <label class="form-label">Tanggal </label>
-      <input type="date" class="form-control" id="input-harga">
+      <input type="date" class="form-control" id="input-tanggal">
     </div>
     <div class="mb-3">
       <label class="form-label">Nis</label>
-      <input type="text" class="form-control" id="input-nama">
+      <input type="text" class="form-control" id="input-nis">
     </div>
 
     <div class="mb-3">
       <label class="form-label">Alamat</label>
-      <input type="text" class="form-control" id="input-nama">
+      <input type="text" class="form-control" id="input-alamat">
     </div>
 
     <div class="mb-3">
       <label class="form-label">Notlpn</label>
-      <input type="text" class="form-control" id="input-nama">
+      <input type="text" class="form-control" id="input-notlpn">
     </div>
 
     <div class="mb-3">
       <label class="form-label"> Kelas</label></label>
-      <input type="text" class="form-control" id="input-nama">
+      <input type="text" class="form-control" id="input-kelas">
     </div>
 
     <div class="mb-3">
       <label class="form-label">Keterangan</label>
-      <input type="text" class="form-control" id="input-nama">
-    </div>
-    <input type="text" class="form-control" id="input-noTlpn">
+      <input type="text" class="form-control" id="input-keterangan">
     </div>
 
-
-    <button type="submit" class="btn btn-primary" id="tombol-ubah">Ubah</button>
+    <button type="submit" class="btn btn-primary" id="tombol-ubah">Simpan</button>
   </form>
 
-  <div class="d-flex justify-content-center">
-    <button onclick="location.href='index.html'" style="background-color: blue; color: white; border-radius: 10px;">lihat data absensi siswa</button>
-  </div>
+  <a href="index.html">Lihat absensi siswa</a>
 
   <script type="module">
-    import { ambilabsensi, ubahabsensi } from './main.js';
+    import { ubahabsensi, ambilabsensi } from './main.js';
 
-    let tombolTambah = document.getElementById('tombol-tambah');
-    let elemennamasiswa = document.getElementById('input-nama');
+    let tombolubah = document.getElementById('tombol-ubah');
     let elementanggal = document.getElementById('input-tanggal');
     let elemennis = document.getElementById('input-nis');
-    let elemenalamat = document.getElementById('tombol-alamat');
-    let elemennotlpn = document.getElementById('input-notlpn');
+    let elemennama = document.getElementById('input-nama');
+    let elemenalamat = document.getElementById('input-alamat');
+    let elemennoTlpn = document.getElementById('input-notlpn');
     let elemenkelas = document.getElementById('input-kelas');
-    let elemenketerangan = document.getElementById('input-keterangan')
+    let elemenketerangan = document.getElementById('input-keterangan');
+    
+    const queryString = window.location.search
     const parameterURL = new URLSearchParams(queryString);
     const docId = parameterURL.get('docId')
-    const produk = await ambilabsensi(docId);
+    const absensi = await ambilabsensi(docId);
 
-    elemenNamasiswa.value = absensi.nama;
-    elementanggal.value = absensi.tanghal;
+
+   
+    elementanggal.value = absensi.tanggal;
+    elemennama.value = absensi.nama;
     elemennis.value = absensi.nis;
     elemenalamat.value = absensi.alamat;
-    elemennotlpn.value = absensi.notlpn;
+    elemennoTlpn.value = absensi.noTlpn;
     elemenkelas.value = absensi.kelas;
-    elemenketerangan.value= absensi.keyerangan;
+    elemenketerangan.value = absensi.keterangan;
 
 
-    tombolUbah.addEventListener('click', async function(el) {
+    tombolubah.addEventListener('click', async function(e) {
       el.preventDefault();
-      await ubahabsensi(docId, elemenNamaPembeli.value, elemenHarga.value, elemenStok.value);
+      await ubahabsensi(elemennama.value, elementanggal.value, elemennis.value, elemenalamat.value, elemennoTlpn.value, elemenkelas.value, elemenketerangan.value);
+
       window.location.href = 'index.html';
+
     });
+    
   </script>
+  
+   <footer class="py-3 bg-dark-subtle mt-auto">
+     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+       <li class="nav-item"><a href="index.html" class="nav-link px-2 text-body-secondary">Beranda</a></li>
+     </ul>
+     <p class="text-center text-body-secondary">&copy; 2024 ABSEN SISWA</p>
+     
+   </footer>
+
 </body>
 
 </html>
